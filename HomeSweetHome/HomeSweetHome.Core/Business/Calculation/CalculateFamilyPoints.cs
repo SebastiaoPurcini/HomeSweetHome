@@ -6,7 +6,7 @@ namespace HomeSweetHome.Core.Business.Calculation
     {
         public static int GetCalculatedPoints(Family family)
         {
-            int incomePoints = 0, dependentsPoints = 0;
+            int incomePoints, dependentsPoints;
 
             incomePoints = CalculateIncomePoints.GetPointsbByIncome(family);
             dependentsPoints = CalculateDependentsPoints.GetPointsbByDependents(family);

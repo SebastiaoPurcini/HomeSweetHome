@@ -7,7 +7,7 @@ namespace HomeSweetHome.Infra.Implementations
 {
     public class FamilyImplementation : IFamily
     {
-        private int _count;
+        private readonly int _count;
 
         public FamilyImplementation(int count = 10)
         {
@@ -25,7 +25,7 @@ namespace HomeSweetHome.Infra.Implementations
             return families;
         }
 
-        private Family GetFamily()
+        private static Family GetFamily()
         {
             var memberImplementation = new MemberImplementation();
 

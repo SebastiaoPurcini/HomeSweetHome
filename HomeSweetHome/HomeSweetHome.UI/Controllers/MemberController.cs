@@ -25,7 +25,7 @@ namespace HomeSweetHome.UI.Controllers
 
             var data = TempData["memberData"].ToString();
 
-            JsonSerializerOptions options = new JsonSerializerOptions() 
+            JsonSerializerOptions options = new() 
             { 
                 PropertyNameCaseInsensitive = true 
             };
@@ -38,7 +38,7 @@ namespace HomeSweetHome.UI.Controllers
 
                 return View("Index", members);
 
-            }catch(Exception e)
+            }catch(Exception)
             {
                 return RedirectToAction("Index", "NotFound");
             }

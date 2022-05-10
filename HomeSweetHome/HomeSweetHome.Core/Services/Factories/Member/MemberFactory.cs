@@ -7,7 +7,7 @@ namespace HomeSweetHome.Core.Services.Factories.Member
 {
     public class MemberFactory : IMemberFactory
     {
-        private int _memberTypeId;
+        private readonly int _memberTypeId;
 
         public MemberFactory(int memberTypeId)
         {
@@ -23,7 +23,7 @@ namespace HomeSweetHome.Core.Services.Factories.Member
             var member = new Models.Member()
             {
                 Id = id,
-                FirstName = $"Membro Nº {id}",
+                FirstName = $"Membro {id}",
                 LastName = $"Membro Sobrenome {id}",
                 Age = age,
                 Salary = GetRandomSalary(age),
@@ -35,22 +35,22 @@ namespace HomeSweetHome.Core.Services.Factories.Member
 
         private MemberType GetMemberType()
         {
-            var memberType = new List<MemberType>();
+            var memberTypeList = new List<MemberType>();
 
-            memberType.Add(new MemberType { Id = 1, Type = "Pretendente" });
-            memberType.Add(new MemberType { Id = 2, Type = "Conjuge" });
-            memberType.Add(new MemberType { Id = 3, Type = "Dependente" });
+            memberTypeList.Add(new MemberType { Id = 1, Type = "Pretendente" });
+            memberTypeList.Add(new MemberType { Id = 2, Type = "Conjuge" });
+            memberTypeList.Add(new MemberType { Id = 3, Type = "Dependente" });
 
-            return memberType.Find(m => m.Id == _memberTypeId);
+            return memberTypeList.Find(m => m.Id == _memberTypeId);
         }
 
         private decimal GetRandomSalary(int age)
         {
-            var random = new Random();
-
             // Essa validação foi aplicada apenas para o
-            // gerador de salários dos integrados se diferenciar,
+            // gerador de salários dos membros se diferenciar,
             // para assim gerar uma métrica melhor na pontuação
+            
+            var random = new Random();
 
             if (_memberTypeId == 3 && age < 18)
             {

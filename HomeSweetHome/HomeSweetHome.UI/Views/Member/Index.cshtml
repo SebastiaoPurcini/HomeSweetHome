@@ -35,6 +35,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Member.Salary) <span>(R$)</span>
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member.MemberType.Type)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -55,6 +58,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Member.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.MemberType.Type)
             </td>
         </tr>
 }

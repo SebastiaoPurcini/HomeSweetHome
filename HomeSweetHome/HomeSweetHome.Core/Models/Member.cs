@@ -17,10 +17,12 @@ namespace HomeSweetHome.Core.Models
         public int Age { get; set; }
 
         [Display(Name = "Salário")]
+
         public decimal Salary { get; set; }
 
-        public string FullName { get => FirstName + " " + LastName; private set { } }
         public MemberType MemberType { get; set; }
+
+        public string FullName => FirstName + " " + LastName;
 
         public Member() { }
     }

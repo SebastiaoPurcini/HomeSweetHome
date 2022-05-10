@@ -12,8 +12,9 @@ a {
     color: #ce1df9;
 }
 
-.action-link{
-    cursor: pointer !important;
+.tb-families tbody tr:first-child {
+    color: #09af1d !important;
+    font-weight: 500;
 }
 
 .btn-primary {

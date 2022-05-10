@@ -21,7 +21,7 @@ namespace HomeSweetHome.UI.Controllers
 
                 return View(families.OrderFamiliesByScore());
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return RedirectToAction("Index", "NotFound");
             }
