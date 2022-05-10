@@ -17,6 +17,12 @@ a {
     font-weight: 500;
 }
 
+#float-button {
+    position: fixed;
+    bottom: 10%;
+    z-index: 1;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #c710f3 !important;

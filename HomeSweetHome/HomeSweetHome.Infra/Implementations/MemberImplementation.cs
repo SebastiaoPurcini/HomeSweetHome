@@ -14,30 +14,30 @@ namespace HomeSweetHome.Infra.Implementations
 
             for (int i = 0; i < GetRandomCount(); i++)
             {
-                int memberTypeId = 3;
+                var memberTypeId = MemberTypeEnum.TypeEnum.Dependente;
 
-                if (!members.Exists(m => m.MemberType.Id.Equals(1)))
+                if (!members.Exists(m => m.MemberType.Id.Equals((int)MemberTypeEnum.TypeEnum.Pretendente)))
                 {
-                    memberTypeId = 1;
+                    memberTypeId = MemberTypeEnum.TypeEnum.Pretendente;
                 }
-                else if (!members.Exists(m => m.MemberType.Id.Equals(2)))
+                else if (!members.Exists(m => m.MemberType.Id.Equals((int)MemberTypeEnum.TypeEnum.Conjuge)))
                 {
-                    memberTypeId = 2;
+                    memberTypeId = MemberTypeEnum.TypeEnum.Conjuge;
                 }
 
-                members.Add(GetMember(memberTypeId));
+                members.Add(GetMember((int)memberTypeId));
             }
 
             return members;
         }
 
-        private Member GetMember(int memberTypeId)
+        private static Member GetMember(int memberTypeId)
         {
             var member = new MemberFactory(memberTypeId).GetNewMember();
 
             return member;
         }
-        private int GetRandomCount()
+        private static int GetRandomCount()
         {
             var random = new Random();
 

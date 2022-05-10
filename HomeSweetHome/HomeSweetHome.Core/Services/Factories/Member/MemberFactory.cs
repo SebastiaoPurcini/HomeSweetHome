@@ -15,10 +15,8 @@ namespace HomeSweetHome.Core.Services.Factories.Member
         }
         public Models.Member GetNewMember()
         {
-            int id = 0, age = 0;
-            
-            id = CommonFactory.GenerateId();
-            age = GetRandomAge();
+            int id = CommonFactory.GenerateId();
+            int age = GetRandomAge();
 
             var member = new Models.Member()
             {
@@ -35,11 +33,12 @@ namespace HomeSweetHome.Core.Services.Factories.Member
 
         private MemberType GetMemberType()
         {
-            var memberTypeList = new List<MemberType>();
-
-            memberTypeList.Add(new MemberType { Id = 1, Type = "Pretendente" });
-            memberTypeList.Add(new MemberType { Id = 2, Type = "Conjuge" });
-            memberTypeList.Add(new MemberType { Id = 3, Type = "Dependente" });
+            var memberTypeList = new List<MemberType>
+            {
+                new MemberType { Id = 1, Type = "Pretendente" },
+                new MemberType { Id = 2, Type = "Cônjuge" },
+                new MemberType { Id = 3, Type = "Dependente" }
+            };
 
             return memberTypeList.Find(m => m.Id == _memberTypeId);
         }
@@ -52,11 +51,11 @@ namespace HomeSweetHome.Core.Services.Factories.Member
             
             var random = new Random();
 
-            if (_memberTypeId == 3 && age < 18)
+            if (_memberTypeId == (int)MemberTypeEnum.TypeEnum.Dependente && age < 18)
             {
                 return 0;
             }
-            else if (_memberTypeId == 2)
+            else if (_memberTypeId == (int)MemberTypeEnum.TypeEnum.Conjuge)
             {
                 return random.Next(0, 800); ;
             }
@@ -68,7 +67,8 @@ namespace HomeSweetHome.Core.Services.Factories.Member
         {
             var random = new Random();
 
-            if (_memberTypeId == 1 || _memberTypeId == 2)
+            if (_memberTypeId == (int)MemberTypeEnum.TypeEnum.Pretendente || 
+                _memberTypeId == (int)MemberTypeEnum.TypeEnum.Conjuge)
             {
                 return random.Next(18, 80);
             }
