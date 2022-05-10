@@ -4,7 +4,7 @@ Para esse projeto foi desenvolvida uma aplicação onde o usuário poderá consu
 seguindo a regra de negócio apresentada. Em caso de empate é avaliado a Quantidade de Membros e Renda. Nessa lista é destacada a família que está apta a ganhar a casa popular do governo. 
 Também é possível a partir dessa, consultar os Membros que fazem parte da família.
 
-O projeto foi desenvolvido utilizando-se 3 camadas de respnsabilidades: Core, Infra e UI
+O projeto foi desenvolvido utilizando-se 3 camadas de responsabilidades: Core, Infra e UI
 
 - Core: Foram criadas aqui as Entidades referente a ideia do projeto, as Interfaces, Extensões e um folder "Business" que contem a regra de Calculo para a pontuação. 
 Nessa também foram criadas factories(Services\Factories), para gerar uma simulação de dados, uma vez que não estão sendo consumidos;
