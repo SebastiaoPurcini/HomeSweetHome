@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-left">
+    <h1 class="display-4">Bem Vindo!</h1>
+    <img src="/images/home.svg" class="img-fluid" alt="...">
+</div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2">
+  <button class="btn btn-primary me-md-2" type="button" onclick="location.href='@Url.Action("Index", "Family")'"><i class="fa-solid fa-play"></i> Iniciar Processo</button>
+</div>

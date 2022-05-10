@@ -1,0 +1,83 @@
+﻿@model IEnumerable<FamilyViewModel>
+
+@{
+    ViewData["Title"] = "Famílias Candidatas";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+<br />
+<h1>@ViewData["Title"]</h1>
+<br />
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Family.Id)
+            </th>
+            <th>
+                <span>Família</span>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Family.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Family.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembersCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Income) <span>(R$)</span>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DependentsCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnmountPoints)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Family.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Family.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Family.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Family.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MembersCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Income)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DependentsCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnmountPoints)
+            </td>
+            <td>
+                @Html.ActionLink(" ", "ViewMembers", new {data = Json.Serialize(item.Family)}, new { @title = "Visualizar Membros", @class="bx bxs-user-detail btn btn-info action-link" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

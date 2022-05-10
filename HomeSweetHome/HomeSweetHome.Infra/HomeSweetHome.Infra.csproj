@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HomeSweetHome.Core\HomeSweetHome.Core.csproj" />
+    <ProjectReference Include="..\HomeSweetHome.Core\HomeSweetHome.Core.csproj" />
+  </ItemGroup>
+
+</Project>
